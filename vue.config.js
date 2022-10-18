@@ -4,6 +4,7 @@ module.exports = {
   chainWebpack: (config) => {
     config.resolve.alias.set("ren-app-vue", __dirname);
   },
+  plugins: [new VuetifyPlugin()],
   pluginOptions: {
     vuetify: {
 			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
