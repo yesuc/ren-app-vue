@@ -3,7 +3,7 @@ module.exports = {
   lintOnSave: false,
   chainWebpack: (config) => {
     config.resolve.alias.set("ren-app-vue", __dirname);
-    config.plugin('VuetifyPlugin').use(new VuetifyPlugin())
+    config.plugin('VuetifyPlugin').use(VuetifyPlugin)
   },
   pluginOptions: {
     vuetify: {
