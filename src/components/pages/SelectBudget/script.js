@@ -21,7 +21,6 @@ export default {
     let vueInstance = this;
     const config = {
       onDownloadProgress(progressEvent) {
-        console.log(progressEvent)
         vueInstance.loadingProgress = progressEvent.loaded / progressEvent.total * 100;
       }
     };
