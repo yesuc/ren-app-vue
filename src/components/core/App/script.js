@@ -3,7 +3,7 @@ import SelectBudget from "ren-app-vue/src/components/pages/SelectBudget";
 export default {
   name: "App",
   data() {
-    return {}
+    return {};
   },
   components: {
     SelectBudget,

@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { mapGetters } from 'vuex';
+import axios from "axios";
+import { mapGetters } from "vuex";
 
 export default {
   name: "SelectBudget",
@@ -8,7 +8,7 @@ export default {
       loadingProgress: 0,
       options: [],
       selectedOption: undefined,
-    }
+    };
   },
   components: {},
   methods: {
@@ -18,27 +18,30 @@ export default {
       } else {
         this.selectedOption = this.options.find((item) => item._id === value);
       }
-    }
+    },
   },
   watch: {},
   computed: {
     ...mapGetters({
-      baseUri: 'BACKEND_BASE_URI',
-    })
+      baseUri: "BACKEND_BASE_URI",
+    }),
   },
   async created() {
-    let vueInstance = this;
+    const vueInstance = this;
     const config = {
       onDownloadProgress(progressEvent) {
-        vueInstance.loadingProgress = progressEvent.loaded / progressEvent.total * 100;
-      }
+        vueInstance.loadingProgress =
+          (progressEvent.loaded / progressEvent.total) * 100;
+      },
     };
-    await axios.get(`http://${this.baseUri}/dbs_api/default_budget_strategy`, config).then(response => {
-      if (response.error) {
-        console.error(response.error);
-      } else {
-        this.options = response.data.data;
-      }
-    });
-  }
+    await axios
+      .get(`http://${this.baseUri}/dbs_api/default_budget_strategy`, config)
+      .then((response) => {
+        if (response.error) {
+          console.error(response.error);
+        } else {
+          this.options = response.data.data;
+        }
+      });
+  },
 };
