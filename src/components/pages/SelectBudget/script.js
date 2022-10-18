@@ -7,10 +7,19 @@ export default {
     return {
       loadingProgress: 0,
       options: [],
+      selectedOption: undefined,
     }
   },
   components: {},
-  methods: {},
+  methods: {
+    toggleOption(value) {
+      if (this.selectedOption && this.selectedOption._id === value) {
+        this.selectedOption = undefined;
+      } else {
+        this.selectedOption = this.options.find((item) => item._id === value);
+      }
+    }
+  },
   watch: {},
   computed: {
     ...mapGetters({
