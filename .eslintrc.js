@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ["plugin:vue/essential", "@vue/airbnb", "@vue/prettier"],
+  extends: ["plugin:vue/vue3-essential", "eslint:recommended", "@vue/airbnb", "@vue/prettier"],
   parserOptions: {
     ecmaVersion: 2021,
   },
@@ -16,10 +16,14 @@ module.exports = {
   },
   parserOptions: {
     parser: "@babel/eslint-parser",
-    parserOptions: {
-      sourceType: "module",
-      allowImportExportEverywhere: false,
-      codeFrame: true,
-    },
+    sourceType: "module",
+    allowImportExportEverywhere: false,
+    codeFrame: true,
   },
+  browserslist: [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 };

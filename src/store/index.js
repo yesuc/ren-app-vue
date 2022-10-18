@@ -1,4 +1,4 @@
-import Vuex from "vuex";
+import { createStore } from "vuex";
 
 // Store modules
 import backend from 'ren-app-vue/src/store/backend';
@@ -14,8 +14,5 @@ export const index = {
   actions: {},
 };
 
-function createStore() {
-  return new Vuex.Store(index);
-}
-
-export default createStore;
+const store = createStore(index);
+export default store;
