@@ -1,26 +1,10 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import Vuetify from "vuetify/lib";
+import { createApp } from "vue";
+import vuetify from "ren-app-vue/src/plugins/vuetify";
+import { loadFonts } from "ren-app-vue/src/plugins/webfontloader";
 import App from "ren-app-vue/src/components/core/App";
-import createStore from "ren-app-vue/src/store/index";
+import store from "ren-app-vue/src/store/index";
 
-Vue.config.productionTip = false;
+loadFonts();
 
-Vue.use(Vuex);
-
-// Vuetify Config
-Vue.use(Vuetify);
-const vuetify = new Vuetify({
-  theme: {
-    dark: true,
-  }
-});
-
-// Initialize Vuex Store
-const store = createStore();
-
-new Vue({
-  store,
-  vuetify,
-  render: (h) => h(App),
-}).$mount("#app");
+// Initialize Vue Instance
+createApp(App).use(store).use(vuetify).mount("#app");
