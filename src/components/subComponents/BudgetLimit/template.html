@@ -1,0 +1,65 @@
+<v-container>
+    <v-row>
+        <v-col cols="12" md="6">
+            <h1 class="text-h2 text-md-h1 text-center text-md-left">What's your budget limit?</h1>
+        </v-col>
+
+        <v-col :align-self="$vuetify.display.mdAndUp ? 'center' : undefined">
+            <v-row>
+                <v-col cols="12">
+                    <p class="text-center">We use your budget limit to calculate <strong>monthly limits for your Needs, Wants, and Saving categories</strong></p>
+                </v-col>
+                <v-col cols="12">
+                    <img src="" style="width: 100%; height: 10vw;"/>
+                </v-col>
+            </v-row>
+            
+            <v-row>
+                <v-col cols="12">
+                    <div class="text-center text-h5">You can estimate your budget or skip this step for now</div>
+                </v-col>
+
+                <v-col cols="12">
+                    <v-text-field
+                        v-model="annualBudget"
+                        type="number"
+                        label="Annual Budget"
+                        prefix="$"
+                        placeholder="1.00"
+                        :rules="[(value) => value > 1.00 ? true : 'Start with a budget value of at least 1.00']"
+                    />
+                </v-col>
+            </v-row>
+
+            <v-row class="mt-10">
+                <v-col cols="12">
+                    <v-btn 
+                        @click="$emit('continue')"
+                        :disabled="annualBudget > 1.00"
+                        append-icon="mdi-arrow-right"
+                        block
+                    >
+                        Continue
+                    </v-btn>
+                </v-col>
+                <v-col cols="12">
+                    <v-btn 
+                        @click="$emit('continue')"
+                        block
+                    >
+                        Skip
+                    </v-btn>
+                </v-col>
+                <v-col cols="12">
+                    <v-btn 
+                        @click="$emit('back')"
+                        prepend-icon="mdi-arrow-left"
+                        block
+                    >
+                        Back
+                    </v-btn>
+                </v-col>
+            </v-row>
+        </v-col>
+    </v-row>
+</v-container>

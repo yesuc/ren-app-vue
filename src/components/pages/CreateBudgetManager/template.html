@@ -1,0 +1,12 @@
+<v-container>
+    <v-row>
+        <v-scroll-x-reverse-transition>
+            <v-col v-if="step === 0">
+                <select-budget @continue="forward()" />
+            </v-col>
+            <v-col v-else-if="step === 1">
+                <budget-limit @continue="forward()" @back="back()"/>
+            </v-col>
+        </v-scroll-x-reverse-transition>
+    </v-row>
+</v-container>

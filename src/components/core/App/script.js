@@ -1,4 +1,4 @@
-import SelectBudget from "ren-app-vue/src/components/pages/SelectBudget";
+import CreateBudgetManager from "ren-app-vue/src/components/pages/CreateBudgetManager";
 
 export default {
   name: "App",
@@ -6,7 +6,7 @@ export default {
     return {};
   },
   components: {
-    SelectBudget,
+    CreateBudgetManager,
   },
   methods: {},
   watch: {},
