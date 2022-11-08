@@ -1,0 +1,38 @@
+<v-row>
+    <v-col :align-self="$vuetify.display.mdAndUp ? 'center' : undefined">
+        <v-row>
+            <v-col cols="12" class="text-center">
+                <h5 class="text-h5">What's your housing situation look like?</h5>
+                <div class="mt-4"><b>Housing</b> is one of the most important parts of any budget. Let's start here.</div>
+            </v-col>
+        </v-row>
+        <v-row class="mt-10">
+            <v-col cols="12">
+                <v-btn @click="$emit('continue', 'rent')" block>
+                    I rent my home
+                </v-btn>
+            </v-col>
+            <v-col cols="12">
+                <v-btn @click="$emit('continue', 'mortgage')" block>
+                    I have a home mortgage
+                </v-btn>
+            </v-col>
+            <v-col cols="12">
+                <v-btn @click="$emit('continue', 'own')" block>
+                    I own my home
+                </v-btn>
+            </v-col>
+        </v-row>
+        <v-row class="mt-10">
+            <v-col cols="12">
+                <v-btn 
+                    @click="$emit('back')"
+                    prepend-icon="mdi-arrow-left"
+                    block
+                >
+                    Back
+                </v-btn>
+            </v-col>
+        </v-row>
+    </v-col>
+</v-row>

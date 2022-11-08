@@ -1,0 +1,50 @@
+<v-row>
+    <v-col :align-self="$vuetify.display.mdAndUp ? 'center' : undefined">
+        <v-row>
+            <v-col v-if="header" cols="12">
+                <div class="text-center text-h5">{{ header }}</div>
+            </v-col>
+
+            <v-col cols="12">
+                <v-text-field
+                    v-model="value"
+                    type="number"
+                    :label="label ? label : ''"
+                    prefix="$"
+                    placeholder="1.00"
+                    :rules="[(value) => value > 1.00 ? true : 'Start with a value of at least 1.00']"
+                />
+            </v-col>
+        </v-row>
+
+        <v-row class="mt-10">
+            <v-col cols="12">
+                <v-btn 
+                    @click="$emit('continue', value)"
+                    :disabled="value < 1.01"
+                    append-icon="mdi-arrow-right"
+                    block
+                >
+                    Continue
+                </v-btn>
+            </v-col>
+            <v-col cols="12">
+                <v-btn 
+                    @click="$emit('continue', 0)"
+                    block
+                >
+                    Skip
+                </v-btn>
+            </v-col>
+            <v-col cols="12">
+                <v-btn 
+                    @click="$emit('back')"
+                    prepend-icon="mdi-arrow-left"
+                    block
+                >
+                    Back
+                </v-btn>
+            </v-col>
+        </v-row>
+    </v-col>
+</v-row>

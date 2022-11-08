@@ -10,6 +10,7 @@ export default {
       selectedOption: undefined,
     };
   },
+  emits: ["continue", "back"],
   components: {},
   methods: {
     toggleOption(value) {

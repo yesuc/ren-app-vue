@@ -37,7 +37,7 @@
 
             <v-row class="mt-10">
                 <v-col>
-                    <v-btn @click="$emit('continue')" :disabled="!selectedOption" block>
+                    <v-btn @click="$emit('continue', selectedOption)" :disabled="!selectedOption" block>
                         Continue
                         <v-icon right>mdi-arrow-right</v-icon>
                     </v-btn>
