@@ -1,6 +1,6 @@
 export default {
   state: {
-    baseUri: "localhost:3000",
+    baseUri: "localhost:49160",
   },
   getters: {
     BACKEND_BASE_URI(state) {
