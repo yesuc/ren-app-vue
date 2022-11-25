@@ -1,0 +1,51 @@
+<div>
+    <slot name="header">
+        <!-- Nothing, or your slot content here! -->
+    </slot>
+    <div class="mt-8">
+        <div v-if="expenses.length > 0" v-for="(item, index) in expenses" :class="index === 0 ? '' : 'mt-6'">
+            <custom-expense-input 
+                :id="item.id" 
+                :key="item.id" 
+                :expense-name="item.name" 
+                :expense-init-value="item.value" 
+                @update="updateExpense"
+            />
+            <v-btn
+                @click.prevent="deleteExpense(item.id)"
+                prepend-icon="mdi-minus"
+                block
+            >
+                Delete
+            </v-btn>
+        </div>
+        <div class="mt-4">
+            <v-btn 
+                @click.prevent="createExpense" 
+                prepend-icon="mdi-plus" 
+                block
+            >
+                Add
+            </v-btn>
+        </div>
+       
+        <div class="mt-6">
+            <v-btn
+                @click="$emit('forward', expenses)"
+                append-icon="mdi-arrow-right"
+                block
+            >
+                Continue
+            </v-btn>
+            <v-btn
+                @click="$emit('back')"
+                prepend-icon="mdi-arrow-left"
+                block
+                class="mt-4"
+            >
+                Back
+            </v-btn>
+        </div>
+        
+    </div>
+</div>

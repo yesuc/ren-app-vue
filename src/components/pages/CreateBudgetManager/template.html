@@ -9,5 +9,8 @@
         <v-col v-else-if="step === 2">
             <needs-manager @continue="updateNeeds" @back="back()" />
         </v-col>
+        <v-col v-else-if="step === 3">
+            <wants-manager @continue="" @back="back()" :percentage="Number.parseInt(budgetSelected.categories.wants)" :allocation="budgetLimit * Number.parseInt(budgetSelected.categories.wants) / 100" />
+        </v-col>
     </v-row>
 </v-container>
