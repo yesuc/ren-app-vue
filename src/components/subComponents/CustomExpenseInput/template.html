@@ -1,0 +1,16 @@
+<v-text-field
+    v-model="name"
+    @change="update('name')"
+    type="text" 
+    label="Expense Name" 
+    placeholder="Netflix, Shopping, Uber Eats,..." 
+    required
+/>
+<v-text-field 
+    v-model="value"
+    @change="update('value')"
+    type="number"
+    :label="name || 'Expense Cost'"
+    placeholder="1.01"
+    prefix="$"
+/>

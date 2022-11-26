@@ -1,7 +1,7 @@
 <v-container style="height: 100%">
     <v-row style="height: 100%">
         <v-col cols="12" md="6">
-            <h1 class="text-h1 text-center text-md-left">Select your Budget Strategy</h1>
+            <h1 class="text-h2 text-md-h1 text-center text-md-left">Select your Budget Strategy</h1>
         </v-col>
 
         <v-col :align-self="$vuetify.display.mdAndUp ? 'center' : undefined">
@@ -37,7 +37,7 @@
 
             <v-row class="mt-10">
                 <v-col>
-                    <v-btn :disabled="!selectedOption" block>
+                    <v-btn @click="$emit('continue', selectedOption)" :disabled="!selectedOption" block>
                         Continue
                         <v-icon right>mdi-arrow-right</v-icon>
                     </v-btn>

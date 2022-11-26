@@ -14,6 +14,7 @@ module.exports = {
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "no-underscore-dangle": 0,
+    "no-plusplus": 0,
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
   },
