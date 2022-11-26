@@ -2,7 +2,7 @@ export default {
   name: "BudgetLimit",
   data() {
     return {
-      annualBudget: 0,
+      annualBudget: undefined,
     };
   },
   props: {},

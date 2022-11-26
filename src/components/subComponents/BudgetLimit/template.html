@@ -34,20 +34,12 @@
             <v-row class="mt-10">
                 <v-col cols="12">
                     <v-btn 
-                        @click="$emit('continue', annualBudget)"
+                        @click="$emit('continue', annualBudget > 0 ? annualBudget : 0.00)"
                         :disabled="annualBudget < 1.01"
                         append-icon="mdi-arrow-right"
                         block
                     >
                         Continue
-                    </v-btn>
-                </v-col>
-                <v-col cols="12">
-                    <v-btn 
-                        @click="$emit('continue', 0)"
-                        block
-                    >
-                        Skip
                     </v-btn>
                 </v-col>
                 <v-col cols="12">

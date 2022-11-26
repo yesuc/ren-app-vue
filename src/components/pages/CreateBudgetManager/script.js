@@ -2,6 +2,7 @@ import SelectBudget from "ren-app-vue/src/components/subComponents/SelectBudget"
 import BudgetLimit from "ren-app-vue/src/components/subComponents/BudgetLimit";
 import NeedsManager from "ren-app-vue/src/components/subComponents/NeedsManager";
 import WantsManager from "ren-app-vue/src/components/subComponents/WantsManager";
+import SavingsManager from "ren-app-vue/src/components/subComponents/SavingsManager";
 
 export default {
   name: "CreateBudgetManager",
@@ -21,10 +22,11 @@ export default {
     BudgetLimit,
     NeedsManager,
     WantsManager,
+    SavingsManager,
   },
   methods: {
     forward() {
-      if (this.step < 3) {
+      if (this.step < 4) {
         this.step++;
       }
     },
@@ -50,6 +52,10 @@ export default {
       this.wantExpenses = target;
       this.forward();
     },
+    updateSavings(target) {
+      this.SavingsManager = target;
+      this.forward();
+    }
   },
   watch: {},
   computed: {},

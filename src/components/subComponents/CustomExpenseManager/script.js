@@ -10,6 +10,7 @@ export default {
     components: {
         CustomExpenseInput
     },
+    emits: ['forward', 'back'],
     methods: {
         createExpense() {
             this.expenses.push({ id: this.expenses.length + 1, name: '', value: 0 });

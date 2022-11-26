@@ -2,7 +2,7 @@ export default {
   name: "SingleMoneyInput",
   data() {
     return {
-      value: 0,
+      value: undefined,
     };
   },
   props: {

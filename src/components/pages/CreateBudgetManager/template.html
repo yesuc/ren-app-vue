@@ -7,10 +7,28 @@
             <budget-limit @continue="updateBudgetLimit" @back="back()"/>
         </v-col>
         <v-col v-else-if="step === 2">
-            <needs-manager @continue="updateNeeds" @back="back()" />
+            <needs-manager 
+                @continue="updateNeeds" 
+                @back="back()" 
+                :percentage="Number.parseInt(budgetSelected.categories.needs)" 
+                :allocation="budgetLimit * Number.parseInt(budgetSelected.categories.needs) / 100" 
+            />
         </v-col>
         <v-col v-else-if="step === 3">
-            <wants-manager @continue="" @back="back()" :percentage="Number.parseInt(budgetSelected.categories.wants)" :allocation="budgetLimit * Number.parseInt(budgetSelected.categories.wants) / 100" />
+            <wants-manager 
+                @continue="updateWants" 
+                @back="back()" 
+                :percentage="Number.parseInt(budgetSelected.categories.wants)" 
+                :allocation="budgetLimit * Number.parseInt(budgetSelected.categories.wants) / 100" 
+            />
+        </v-col>
+        <v-col v-if="step === 4">
+            <savings-manager
+                @continue="updateSavings"
+                @back="back()"
+                :percentage="Number.parseInt(budgetSelected.categories.savings)" 
+                :allocation="budgetLimit * Number.parseInt(budgetSelected.categories.savings) / 100" 
+            />
         </v-col>
     </v-row>
 </v-container>
