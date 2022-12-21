@@ -1,0 +1,42 @@
+[
+    {
+        "_id": "637fb65981172ad708ed165a",
+        "nickname": "50 / 30 / 20",
+        "type": "traditional",
+        "allocations": {
+            "Needs": 50,
+            "Wants": 30,
+            "Savings": 20
+        },
+        "limit": 90000.00,
+        "groups": [
+            {
+                "name": "Needs",
+                "entries": {
+                    "Rent": 1385.00,
+                    "Car Insurance": 145.00,
+                    "Rent Insurance": 1.25,
+                    "Groceries": 400.00
+                }
+            },
+            {
+                "name": "Wants",
+                "entries": {
+                    "Discord": 4.99,
+                    "Spotify": 9.99,
+                    "Volleyball": 40.00
+                }
+            },
+            {
+                "name": "Savings",
+                "entries": {
+                    "401K": 745.00,
+                    "Emergency Fund": 100.00,
+                    "Pet Fund": 100.00,
+                    "Slush Fund": 100.00
+                }
+            }
+        ],
+        "__v": 0
+    }
+]

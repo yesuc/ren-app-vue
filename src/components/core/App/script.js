@@ -1,11 +1,16 @@
+import BudgetOverview from "ren-app-vue/src/components/pages/BudgetOverview";
 import CreateBudgetManager from "ren-app-vue/src/components/pages/CreateBudgetManager";
 
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      demo: false,
+      displayDemoButton: true,
+    };
   },
   components: {
+    BudgetOverview,
     CreateBudgetManager,
   },
   methods: {},

@@ -24,6 +24,7 @@ export default {
     WantsManager,
     SavingsManager,
   },
+  emits: ['disableDemo'], // for demo only
   methods: {
     forward() {
       if (this.step < 4) {
@@ -36,6 +37,7 @@ export default {
       }
     },
     updateBudgetStrategy(target) {
+      this.$emit('disableDemo');
       this.budgetSelected = target;
       this.forward();
     },

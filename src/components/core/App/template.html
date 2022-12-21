@@ -2,8 +2,13 @@
     <v-main>
         <v-container style="height: 100%">
             <v-row style="height: 100%">
-                <v-col>
-                    <create-budget-manager />
+                <v-col cols="12">
+                    <!-- TODO: Replace conditionals with router -->
+                    <budget-overview v-if="demo" demo="demo"/>
+                    <create-budget-manager v-else @disableDemo="displayDemoButton = false"/>
+                </v-col>
+                <v-col v-if="displayDemoButton" align="center" cols="12">
+                    <v-btn @click="demo = true; displayDemoButton = false;">View Budget Overview Demo</v-btn>
                 </v-col>
             </v-row>
         </v-container>
