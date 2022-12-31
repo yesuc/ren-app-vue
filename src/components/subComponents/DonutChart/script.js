@@ -1,5 +1,5 @@
-import { Chart, DoughnutController, ArcElement, Tooltip, SubTitle, Title } from "chart.js";
-// import Chart from 'chart.js/auto';
+// import { Chart, DoughnutController, ArcElement, Tooltip, SubTitle, Title } from "chart.js";
+import Chart from 'chart.js/auto';
 
 export default {
     name: "DonutChart",
@@ -33,11 +33,14 @@ export default {
                 }
             ],
         };
+        const options = {
+            maintainAspectRatio: false, // Need set false to enable proper chart height resizing
+        }
         const config = {
             type: 'doughnut',
             data: data,
         }
-        Chart.register([DoughnutController, ArcElement, Tooltip, SubTitle, Title]);
+        // Chart.register([DoughnutController, ArcElement, Tooltip, SubTitle, Title]);
         this.chart = new Chart(contextElement, config);
     }
 }

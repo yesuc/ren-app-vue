@@ -1,10 +1,39 @@
 <v-container>
     <v-row justify="center">
         <v-col cols="12" md="6">
-            <h2 class="text-h2 text-md-h1 text-center text-md-left">Budget Overview</h2>
+            <header>
+                <h2 class="text-h2 text-md-h1 text-center">Budget Overview</h2>
+            </header>
         </v-col>
-        <v-col :align-self="$vuetify.display.mdAndUp ? 'center' : undefined">
+        <v-col cols="12" :align-self="$vuetify.display.mdAndUp ? 'center' : undefined">
             <donut-chart :labels="chartLabels" :data="chartData" class="d-flex justify-center" /> 
+            <div>Nickname: {{ budget.nickname }}</div>
+            <div>Budget Limit: ${{ budget.limit.toFixed(2) }}</div>
+            <div>
+                Status: 
+                <span v-if="budgetHealthy" class="text-primary">Healthy</span>
+                <span v-else class="text-warning">Over Budget</span>
+            </div>
+            <v-row class="mt-1">
+                <v-col>
+                    <v-divider />
+                </v-col>
+                <v-col v-for="(group, index) in budget.groups" cols="12">
+                    <div class="d-inline-flex">
+                        <h3 class="text-h3">{{ group.name }}</h3>
+                        <v-icon end icon="mdi-check-circle" color="primary" size="large" class="align-self-center"/> 
+                    </div>
+                    <div>
+                        Limit: ${{ (budget.limit * budget.allocations[group.name] / 100).toFixed(2) }}
+                    </div>
+                    <div>Used: ${{ chartData[index].toFixed(2) }}</div>
+                    <v-list>
+                        <v-list-item>
+                            Notes on group here
+                        </v-list-item>
+                    </v-list>
+                </v-col>
+            </v-row>
         </v-col>
     </v-row>
 </v-container>

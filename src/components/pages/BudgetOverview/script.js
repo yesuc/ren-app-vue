@@ -10,6 +10,8 @@ export default {
             budget: [],
             chartData: [],
             chartLabels: [],
+            budgetHealthy: false,
+            groupHealth: [],
         }
     },
     props: {
@@ -35,9 +37,16 @@ export default {
         if (this.demo) {
             this.budget = mockData[0];  
         }
+        let budgetTotal = 0;
+        let groupTotal = 0;
+        this.groupHealth = new Array(this.budget.groups.length).fill(false);
         this.budget.groups.forEach( (obj, _) => {
             this.chartLabels.push(obj.name);
-            this.chartData.push(this.sumBudgetGroup(obj.entries));
+            groupTotal = this.sumBudgetGroup(obj.entries);
+            
+            budgetTotal += groupTotal;
+            this.chartData.push(groupTotal);
         });
+        this.budgetHealthy = budgetTotal <= this.budget.limit;
     }
 }
